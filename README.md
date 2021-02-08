@@ -1,24 +1,24 @@
 # README
+Ruby vesion 2.7.2, Rails version 6.1.1
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## How to test:
 
-Things you may want to cover:
+Clone app:
+<br /> `git clone https://github.com/imFawkes/stocks_api <directory>`
 
-* Ruby version
+Add gems:
+<br /> `bundle install`
 
-* System dependencies
+Setup DB:
+<br /> `rails db:setup`
 
-* Configuration
+Run server in one terminal window:
+<br /> `rails s`
 
-* Database creation
+### Use `curl` in anoter terminal window to test:
 
-* Database initialization
+transfer products from one warehouse to another:
+<br /> `curl -i -d '{"warehouse_id":"1", "new_warehouse_id":"2", "quantity":"5"}' -H "Content-Type: application/json" -X POST http://localhost:3000/products/1/transfer`
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+sell products with passed quantity:
+<br /> `curl -i -d '{"product_id":"2", "quantity":"5"}' -H "Content-Type: application/json" -X POST http://localhost:3000/products/2/sell`
